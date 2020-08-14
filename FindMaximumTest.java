@@ -13,8 +13,8 @@ public class FindMaximumTest {
      */
     @Test
     public void firstPosition_ifMaximum_returnsFirstPosition() {
-        testMaximum = new TestMaximum(2, 3, 1);
-        maximumNumber = testMaximum.findMaximumInteger();
+        testMaximum = new TestMaximum();
+        maximumNumber = testMaximum.findMaximumInteger(2, 3, 1);
         Assert.assertEquals(3, maximumNumber);
     }
 
@@ -23,8 +23,8 @@ public class FindMaximumTest {
      */
     @Test
     public void secondPosition_ifMaximum_returnsSecondPosition() {
-        testMaximum = new TestMaximum(2, 3, 1);
-        maximumNumber = testMaximum.findMaximumInteger();
+        testMaximum = new TestMaximum();
+        maximumNumber = testMaximum.findMaximumInteger(2, 3, 1);
         Assert.assertEquals(3, maximumNumber);
     }
 
@@ -33,8 +33,8 @@ public class FindMaximumTest {
      */
     @Test
     public void thirdPosition_ifMaximum_returnsThirdPosition() {
-        testMaximum = new TestMaximum(2, 3, 1);
-        maximumNumber = testMaximum.findMaximumInteger();
+        testMaximum = new TestMaximum();
+        maximumNumber = testMaximum.findMaximumInteger(2, 3, 1);
         Assert.assertEquals(3, maximumNumber);
     }
 }
