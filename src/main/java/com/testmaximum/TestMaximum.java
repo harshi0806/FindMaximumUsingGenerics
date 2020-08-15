@@ -1,41 +1,42 @@
 package com.testmaximum;
 
-public class TestMaximum {
+import java.util.Arrays;
+
+/**
+ * Created Generic class Test Maximum of Generic type E that extends Comparable
+ * @param <E> Generic Type
+ */
+public class TestMaximum<E extends Comparable<E>> {
+
+    E input1, input2, input3;
+
     /**
-     * Function to find the maximum Integer value
-     * @param num1 is integer number at position1
-     * @param num2 is integer number at position2
-     * @param num3 is integer number at position3
-     * @return max
+     * Parameterized Constructor
+     * @param input1 value at position1
+     * @param input2 value at position2
+     * @param input3 value at position3
      */
-    public Integer findMaximumInteger(Integer num1, Integer num2, Integer num3) {
-        //num1 is largest so far
-        Integer max = num1;
-        if (num2.compareTo(max) > 0) {
-            //num2 is largest so far
-            max = num2;
-        }
-        if (num3.compareTo(max) > 0) {
-            //num3 is largest so far
-            max = num3;
-        }
-        return max;
+    TestMaximum(E input1, E input2, E input3){
+        this.input1 = input1;
+        this.input2 = input2;
+        this.input3 = input3;
     }
 
     /**
-     * Function to find the maximum Float value
-     * @param num1 is float number at position1
-     * @param num2 is float number at position2
-     * @param num3 is float number at position3
-     * @return max
+     * Refactored all the 3 to find one generic method to find maximum
+     * @return max which gives input with maximum value
      */
-    public Float findMaximumFloat(Float num1, Float num2, Float num3){
-        Float max = num1;
-        if(num2.compareTo(num1) > 0){
-            max = num2;
+    public E testMaximum(){
+        return inputWithMaxValue(input1, input2, input3);
+    }
+
+    public static <E extends Comparable> E inputWithMaxValue(E input1, E input2, E input3){
+        E max = input1;
+        if(input2.compareTo(max) > 0){
+            max = input2;
         }
-        if(num3.compareTo(num2) > 0){
-            max = num3;
+        if(input3.compareTo(max) > 0){
+            max = input3;
         }
         return max;
     }
