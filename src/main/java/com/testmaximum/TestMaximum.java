@@ -1,43 +1,33 @@
 package com.testmaximum;
 
-import java.util.Arrays;
+import java.util.*;
+import java.lang.Comparable;
+import java.util.*;
 
-/**
- * Created Generic class Test Maximum of Generic type E that extends Comparable
- * @param <E> Generic Type
- */
-public class TestMaximum<E extends Comparable<E>> {
+public class TestMaximum {
 
-    E input1, input2, input3;
+    public static void main(String[] args) {
+        @SuppressWarnings("unchecked")
+        List<Integer> integerList = new ArrayList<>(List.of(3, 2, 1, 4, 5));
+        List<String> stringList = new ArrayList<>(List.of("H", "A", "R", "S", "I"));
+        List<String> floatList = new ArrayList<>(List.of("5.1", "4.1", "3.1", "2.1", "1.1"));
 
-    /**
-     * Parameterized Constructor
-     * @param input1 value at position1
-     * @param input2 value at position2
-     * @param input3 value at position3
-     */
-    TestMaximum(E input1, E input2, E input3){
-        this.input1 = input1;
-        this.input2 = input2;
-        this.input3 = input3;
+        sortArrays(integerList, stringList, floatList);
+
+        System.out.println(integerList);
+        System.out.println(stringList);
+        System.out.println(floatList);
     }
 
     /**
-     * Refactored all the 3 to find one generic method to find maximum
-     * @return max which gives input with maximum value
+     * This function is used to sort the arraylist using wildcard objects
+     * @param arr
      */
-    public E testMaximum(){
-        return inputWithMaxValue(input1, input2, input3);
-    }
-
-    public static <E extends Comparable> E inputWithMaxValue(E input1, E input2, E input3){
-        E max = input1;
-        if(input2.compareTo(max) > 0){
-            max = input2;
+    public static void sortArrays(List<? extends Comparable>... arr) {
+        for (List<? extends Comparable> list : arr) {
+            Collections.sort(list);
+            System.out.println(Collections.max(list));
         }
-        if(input3.compareTo(max) > 0){
-            max = input3;
-        }
-        return max;
     }
 }
+
